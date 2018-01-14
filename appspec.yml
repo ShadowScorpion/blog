@@ -1,0 +1,22 @@
+version: 1.0
+os: linux
+files:
+   - source: /CodeDeploy/
+     destination: /var/www/html
+permissions:
+   - object: /var/www/html
+     pattern: "**"
+     owner: apache
+     group: apache
+     mode: 755
+     type:
+       - file
+hooks:
+   BeforeInstall:
+    - location: CodeDeploy/scripts/installapache.sh
+      runas: root
+    - location: CodeDeploy/scripts/startapache.sh
+      runas: root
+   AfterInstall:
+    - location: CodeDeploy/scripts/restartapache.sh
+runas: root
