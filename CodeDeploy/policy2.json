@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:ListObjects",
+                "sqs:SendMessage",
+                "sqs:GetQueueUrl",
+                "sns:Publish"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
